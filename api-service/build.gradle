@@ -1,0 +1,18 @@
+plugins {
+    id 'java'
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+dependencies {
+    implementation project(':proto')
+
+    implementation libs.spring.boot.starter.web
+    implementation libs.grpc.client.spring.boot.starter
+}

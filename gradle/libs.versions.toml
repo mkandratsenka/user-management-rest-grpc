@@ -1,0 +1,41 @@
+[versions]
+spring-boot = "3.5.0"
+spring-dependency-management = "1.1.7"
+kotlin = "1.9.25"
+protobuf-plugin = "0.9.4"
+
+grpc = "1.63.0"
+grpc-kotlin = "1.4.1"
+protobuf = "3.25.3"
+grpc-spring-boot-starter = "3.1.0.RELEASE"
+
+kotlinx-coroutines = "1.8.1"
+
+[libraries]
+# Spring Boot
+spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter" }
+spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web" }
+
+# gRPC
+grpc-protobuf = { module = "io.grpc:grpc-protobuf", version.ref = "grpc" }
+grpc-stub = { module = "io.grpc:grpc-stub", version.ref = "grpc" }
+
+# gRPC Kotlin
+grpc-kotlin-stub = { module = "io.grpc:grpc-kotlin-stub", version.ref = "grpc-kotlin" }
+
+# Protobuf
+protobuf-kotlin = { module = "com.google.protobuf:protobuf-kotlin", version.ref = "protobuf" }
+
+# gRPC Spring Boot starters
+grpc-client-spring-boot-starter = { module = "net.devh:grpc-client-spring-boot-starter", version.ref = "grpc-spring-boot-starter" }
+grpc-server-spring-boot-starter = { module = "net.devh:grpc-server-spring-boot-starter", version.ref = "grpc-spring-boot-starter" }
+
+# Coroutines
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+
+[plugins]
+spring-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version.ref = "spring-dependency-management" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-spring = { id = "org.jetbrains.kotlin.plugin.spring", version.ref = "kotlin" }
+protobuf = { id = "com.google.protobuf", version.ref = "protobuf-plugin" }

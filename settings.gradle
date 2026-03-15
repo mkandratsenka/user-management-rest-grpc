@@ -1,0 +1,5 @@
+rootProject.name = 'user-management-rest-grpc'
+
+include 'proto'
+include 'api-service'
+include 'user-service'

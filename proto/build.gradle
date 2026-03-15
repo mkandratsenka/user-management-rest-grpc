@@ -1,0 +1,38 @@
+plugins {
+    id 'java-library'
+    alias(libs.plugins.protobuf)
+    alias(libs.plugins.kotlin.jvm)
+}
+
+dependencies {
+    implementation libs.grpc.protobuf
+    implementation libs.grpc.stub
+
+    implementation libs.protobuf.kotlin
+    implementation libs.grpc.kotlin.stub
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:${libs.versions.protobuf.asProvider().get()}"
+    }
+    plugins {
+        grpc {
+            artifact = "io.grpc:protoc-gen-grpc-java:${libs.versions.grpc.asProvider().get()}"
+        }
+        grpckt {
+            artifact = "io.grpc:protoc-gen-grpc-kotlin:${libs.versions.grpc.kotlin.get()}:jdk8@jar"
+        }
+    }
+    generateProtoTasks {
+        all().configureEach { task ->
+            task.plugins {
+                grpc {}
+                grpckt {}
+            }
+            task.builtins {
+                kotlin {}
+            }
+        }
+    }
+}
